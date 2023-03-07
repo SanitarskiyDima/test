@@ -1,0 +1,249 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 6,
+    "passes": 4,
+    "pending": 0,
+    "failures": 2,
+    "start": "2023-03-02T19:03:57.197Z",
+    "end": "2023-03-02T19:04:29.032Z",
+    "duration": 21391,
+    "testsRegistered": 6,
+    "passPercent": 66.66666666666667,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b1e4b609-2d35-4935-9e8b-313588045627",
+      "title": "",
+      "fullFile": "cypress/e2e/headlessLoginTest.cy.js",
+      "file": "cypress/e2e/headlessLoginTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "open account page",
+          "fullTitle": "open account page",
+          "timedOut": null,
+          "duration": 1887,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "(0, _helper.headlessLogin)(user);\ncy.visit('/index.php?rt=account/account');\ncy.log('**Verify user first name on account page**');\ncy.get('h1 span.subtext', {\n  timeout: 20000\n}).should('contain', user.firstName);",
+          "err": {},
+          "uuid": "135141fa-2549-4225-ad97-be18707ed4bf",
+          "parentUUID": "b1e4b609-2d35-4935-9e8b-313588045627",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "open order history page",
+          "fullTitle": "open order history page",
+          "timedOut": null,
+          "duration": 2970,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "(0, _helper.headlessLogin)(user);\ncy.visit('/index.php?rt=account/history');\ncy.log('**Verify user first name on account page**');\ncy.get('h1 span.maintext', {\n  timeout: 20000\n}).should('contain', ' My Order History');",
+          "err": {},
+          "uuid": "f7870366-47b6-4581-959d-156d50ca28ab",
+          "parentUUID": "b1e4b609-2d35-4935-9e8b-313588045627",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "135141fa-2549-4225-ad97-be18707ed4bf",
+        "f7870366-47b6-4581-959d-156d50ca28ab"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 4857,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "da36dbde-dd8e-48e6-9b9e-f9aa52024c0f",
+      "title": "",
+      "fullFile": "cypress/e2e/orderTest.cy.js",
+      "file": "cypress/e2e/orderTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Order",
+          "fullTitle": "Order",
+          "timedOut": null,
+          "duration": 6864,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "(0, _helper.loginViaUI)(user);\ncy.get('#filter_keyword').type('e').closest(\"form\").submit();\n//findProductWithRecursion('Bene1fit Bella Bamba');\n//findProductWithRecursionWithTestFailing('Benefit Bella Bamba');\n//searchAndClickProduct('Benefit Bella Bamba')\n(0, _helper.findProduct)('Benefit Bella Bamba5');\n//productFinder('Benefit Bella Bamba');\n//findItems('Benefit Bella Bamba')\ncy.log('**Order products**');\ncy.get('.productpagecart').children('li').eq(0).click();\ncy.get('#cart_checkout1').click();\ncy.get('#checkout_btn').click();\ncy.get('.maintext').should('contain', ' Your Order Has Been Processed!');",
+          "err": {
+            "message": "Error: Product not found",
+            "estack": "Error: Product not found\n    at Context.eval (webpack:///./cypress/support/helper.js:129:26)",
+            "diff": null
+          },
+          "uuid": "648d9e8f-c554-4453-aacb-cead630ad954",
+          "parentUUID": "da36dbde-dd8e-48e6-9b9e-f9aa52024c0f",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "648d9e8f-c554-4453-aacb-cead630ad954"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 6864,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "3c81bf60-5e3d-4458-8901-70a4a1548f40",
+      "title": "",
+      "fullFile": "cypress/e2e/registarationTest.cy.js",
+      "file": "cypress/e2e/registarationTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Registration",
+          "fullTitle": "Registration",
+          "timedOut": null,
+          "duration": 7361,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.log('**Open website home page**');\ncy.visit('/');\ncy.log('**Open website login page**');\ncy.get('.topnavbar [data-id=\"menu_account\"]').click();\ncy.log('**Open website sign up page**');\ncy.get('#accountFrm button').click();\ncy.log('**Fill sign up form**');\ncy.get('#AccountFrm_firstname').type(user.firstName);\ncy.get('#AccountFrm_lastname').type(user.lastName);\ncy.get('#AccountFrm_email').type(user.email);\ncy.get('#AccountFrm_address_1').type(user.address);\ncy.get('#AccountFrm_city').type(user.city);\ncy.get('#AccountFrm_postcode').type(user.postCode);\ncy.get('#AccountFrm_country_id').select('Denmark');\ncy.get('#AccountFrm_loginname').type(user.username);\ncy.get('#AccountFrm_password').type(user.password);\ncy.get('#AccountFrm_confirm').type(user.password);\ncy.get('#AccountFrm_zone_id').select(2, {\n  force: true\n}).invoke('val').should('not.eq', 'FALSE');\ncy.log('**Check checkboxes**');\ncy.get('#AccountFrm_newsletter0').check();\ncy.get('#AccountFrm_agree').check();\ncy.log('**Submit sign up form**');\ncy.get('button[title=\"Continue\"]').click();\ncy.log('**Verify user first name on account page**');\ncy.get('h1 span.subtext', {\n  timeout: 20000\n}).should('contain', user.firstName);",
+          "err": {},
+          "uuid": "52717b61-a610-4a78-bdfc-49573f5e5e36",
+          "parentUUID": "3c81bf60-5e3d-4458-8901-70a4a1548f40",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Authorization",
+          "fullTitle": "Authorization",
+          "timedOut": null,
+          "duration": 2070,
+          "state": "passed",
+          "speed": "fast",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.log('Open website login page');\ncy.visit('/index.php?rt=account/login');\ncy.log('Check user is unauthorized');\ncy.getCookie('customer').should('be.null');\ncy.log('Authorize user');\ncy.get('#loginFrm_loginname').type(user.username);\ncy.get('#loginFrm_password').type(user.password);\ncy.get('button[type=\"submit\"]').contains('Login').click();\ncy.get('h1 span.subtext').should('contain', user.firstName);",
+          "err": {},
+          "uuid": "450bcb91-ac69-4724-8c66-bf0aeacb7f98",
+          "parentUUID": "3c81bf60-5e3d-4458-8901-70a4a1548f40",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "52717b61-a610-4a78-bdfc-49573f5e5e36",
+        "450bcb91-ac69-4724-8c66-bf0aeacb7f98"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 9431,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "fe1eeeb5-f16a-435d-bbee-46683201db7f",
+      "title": "",
+      "fullFile": "cypress/e2e/authorizationWithPageObjectTest.cy.js",
+      "file": "cypress/e2e/authorizationWithPageObjectTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "An uncaught error was detected outside of a test",
+          "fullTitle": "An uncaught error was detected outside of a test",
+          "timedOut": null,
+          "duration": 239,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "throw err;",
+          "err": {
+            "message": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > Must call super constructor in derived class before accessing 'this' or returning from derived constructor\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.",
+            "estack": "ReferenceError: The following error originated from your test code, not from Cypress.\n\n  > Must call super constructor in derived class before accessing 'this' or returning from derived constructor\n\nWhen Cypress detects uncaught errors originating from your test code it will automatically fail the current test.\n\nCypress could not associate this error to any specific test.\n\nWe dynamically generated a new test to display this failure.\n    at new LoginPage (webpack:///./cypress/support/pages/LoginPage.js:6:8)\n    at ./cypress/support/pages/LoginPage.js (webpack:///./cypress/support/pages/LoginPage.js:44:15)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at ./cypress/e2e/authorizationWithPageObjectTest.cy.js (webpack:///./cypress/e2e/authorizationWithPageObjectTest.cy.js:2:0)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at 0 (https://automationteststore.com/__cypress/tests?p=cypress/e2e/authorizationWithPageObjectTest.cy.js:256:18)\n    at __webpack_require__ (webpack:///webpack/bootstrap:19:0)\n    at eval (webpack:///webpack/bootstrap:83:0)\n    at eval (https://automationteststore.com/__cypress/tests?p=cypress/e2e/authorizationWithPageObjectTest.cy.js:87:10)\n    at eval (<anonymous>)",
+            "diff": null
+          },
+          "uuid": "77a54482-c327-41ba-8961-d723f6ca1027",
+          "parentUUID": "fe1eeeb5-f16a-435d-bbee-46683201db7f",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "77a54482-c327-41ba-8961-d723f6ca1027"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 239,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
